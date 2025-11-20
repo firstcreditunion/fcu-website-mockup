@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { LightRays } from '@/components/ui/light-rays'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
-import { CardSpotlight } from '@/components/ui/card-spotlight'
+
 import { CoolMode } from '@/components/ui/cool-mode'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import NumberTicker from '@/components/magicui/number-ticker'
@@ -144,7 +144,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <CardSpotlight className='rounded-3xl'>
+              <div className='rounded-3xl'>
                 <div className='relative rounded-3xl overflow-hidden shadow-2xl'>
                   {/* Hero Image */}
                   <div className='aspect-4/3 relative'>
@@ -160,7 +160,7 @@ export default function HeroSection() {
                   <div className='absolute -top-4 -right-4 w-24 h-24 bg-fcu-secondary-400 rounded-full blur-3xl opacity-50'></div>
                   <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-fcu-primary-400 rounded-full blur-3xl opacity-50'></div>
                 </div>
-              </CardSpotlight>
+              </div>
             </motion.div>
           </BlurFade>
         </div>
