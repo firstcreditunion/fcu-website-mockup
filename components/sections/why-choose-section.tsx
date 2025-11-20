@@ -83,9 +83,9 @@ export default function WhyChooseSection() {
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
-                className='group relative'
+                className='group relative h-full'
               >
-                <div className='relative h-full bg-white rounded-3xl p-8 border border-gray-200 hover:border-fcu-primary-200 hover:shadow-xl transition-all duration-300'>
+                <div className='relative h-full bg-white rounded-3xl p-8 border border-gray-200 hover:border-fcu-primary-200 hover:shadow-xl transition-all duration-300 flex flex-col'>
                   {/* Icon */}
                   <div
                     className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} text-white mb-6 group-hover:scale-110 transition-transform`}
@@ -94,12 +94,14 @@ export default function WhyChooseSection() {
                   </div>
 
                   {/* Content */}
-                  <h3 className='text-2xl font-bold text-gray-900 mb-3'>
-                    {feature.title}
-                  </h3>
-                  <p className='text-gray-600 leading-relaxed'>
-                    {feature.description}
-                  </p>
+                  <div className='flex-1 flex flex-col'>
+                    <h3 className='text-2xl font-bold text-gray-900 mb-3'>
+                      {feature.title}
+                    </h3>
+                    <p className='text-gray-600 leading-relaxed'>
+                      {feature.description}
+                    </p>
+                  </div>
 
                   {/* Hover Effect */}
                   <div className='absolute inset-0 rounded-3xl bg-gradient-to-br from-fcu-primary-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'></div>
