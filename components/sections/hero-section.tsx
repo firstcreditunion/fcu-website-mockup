@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { LightRays } from '@/components/ui/light-rays'
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
+import { CardSpotlight } from '@/components/ui/card-spotlight'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import NumberTicker from '@/components/magicui/number-ticker'
 import BlurFade from '@/components/magicui/blur-fade'
@@ -39,12 +41,12 @@ export default function HeroSection() {
 
             {/* Heading */}
             <div className='space-y-4'>
-              <BlurFade delay={0.2}>
-                <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight'>
-                  Banking that puts{' '}
-                  <span className='text-fcu-primary-900'>people</span> first
-                </h1>
-              </BlurFade>
+              <TextGenerateEffect
+                words="Banking that puts people first"
+                className='text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight'
+                highlightWords={['people']}
+                highlightClassName='text-fcu-primary-900'
+              />
 
               <BlurFade delay={0.3}>
                 <p className='text-xl text-gray-600 max-w-xl'>
@@ -130,21 +132,23 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <div className='relative rounded-3xl overflow-hidden shadow-2xl'>
-                {/* Hero Image */}
-                <div className='aspect-4/3 relative'>
-                  <Image
-                    src='/photo-1522202176988-66273c2fd55f.jpg'
-                    alt='Happy team collaborating on financial planning'
-                    fill
-                    className='object-cover'
-                    priority
-                  />
+              <CardSpotlight className='rounded-3xl'>
+                <div className='relative rounded-3xl overflow-hidden shadow-2xl'>
+                  {/* Hero Image */}
+                  <div className='aspect-4/3 relative'>
+                    <Image
+                      src='/photo-1522202176988-66273c2fd55f.jpg'
+                      alt='Happy team collaborating on financial planning'
+                      fill
+                      className='object-cover'
+                      priority
+                    />
+                  </div>
+                  {/* Decorative Elements */}
+                  <div className='absolute -top-4 -right-4 w-24 h-24 bg-fcu-secondary-400 rounded-full blur-3xl opacity-50'></div>
+                  <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-fcu-primary-400 rounded-full blur-3xl opacity-50'></div>
                 </div>
-                {/* Decorative Elements */}
-                <div className='absolute -top-4 -right-4 w-24 h-24 bg-fcu-secondary-400 rounded-full blur-3xl opacity-50'></div>
-                <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-fcu-primary-400 rounded-full blur-3xl opacity-50'></div>
-              </div>
+              </CardSpotlight>
             </motion.div>
           </BlurFade>
         </div>
