@@ -8,9 +8,11 @@ import { Button } from '@/components/ui/button'
 import { LightRays } from '@/components/ui/light-rays'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 import { CardSpotlight } from '@/components/ui/card-spotlight'
+import { CoolMode } from '@/components/ui/cool-mode'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import NumberTicker from '@/components/magicui/number-ticker'
 import BlurFade from '@/components/magicui/blur-fade'
+import BlurText from '../BlurText'
 
 export default function HeroSection() {
   return (
@@ -31,9 +33,9 @@ export default function HeroSection() {
           <div className='space-y-8'>
             {/* Trust Badge */}
             <BlurFade delay={0.1}>
-              <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fcu-secondary-500/10 border border-fcu-secondary-500/20'>
-                <Check className='w-4 h-4 text-fcu-secondary-600' />
-                <span className='text-sm font-medium text-fcu-secondary-700'>
+              <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fcu-secondary-500 border border-fcu-secondary-500/20'>
+                <Check className='w-4 h-4 text-white' />
+                <span className='text-sm font-medium text-white'>
                   Trusted by over 50,000 New Zealanders
                 </span>
               </div>
@@ -41,12 +43,15 @@ export default function HeroSection() {
 
             {/* Heading */}
             <div className='space-y-4'>
-              <TextGenerateEffect
-                words="Banking that puts people first"
-                className='text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight'
-                highlightWords={['people']}
-                highlightClassName='text-fcu-primary-900'
-              />
+              <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight'>
+                <BlurText
+                  text='Banking that puts people first'
+                  delay={150}
+                  animateBy='words'
+                  direction='top'
+                  className='text-5xl font-bold leading-tight text-fcu-primary-900'
+                />
+              </h1>
 
               <BlurFade delay={0.3}>
                 <p className='text-xl text-gray-600 max-w-xl'>
@@ -59,19 +64,26 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <BlurFade delay={0.4}>
-              <div className='flex flex-col sm:flex-row gap-4'>
-                <ShimmerButton
-                  className='group'
-                  shimmerColor='#6fd4a8'
-                  background='rgb(30, 94, 111)'
-                  borderRadius='9999px'
+              <div className='flex flex-col sm:flex-row gap-4 items-center sm:items-start'>
+                <CoolMode>
+                  <ShimmerButton
+                    className='group h-11 px-8'
+                    shimmerColor='#6fd4a8'
+                    background='rgb(30, 94, 111)'
+                    borderRadius='9999px'
+                  >
+                    <span className='whitespace-pre-wrap text-center text-base font-medium leading-none tracking-tight text-white flex items-center gap-2'>
+                      Become a Member
+                      <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
+                    </span>
+                  </ShimmerButton>
+                </CoolMode>
+                <Button
+                  variant='outline'
+                  size='lg'
+                  asChild
+                  className='h-11 px-8'
                 >
-                  <span className='whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base flex items-center gap-2'>
-                    Become a Member
-                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
-                  </span>
-                </ShimmerButton>
-                <Button variant='outline' size='lg' asChild>
                   <Link href='#services'>Explore Services</Link>
                 </Button>
               </div>

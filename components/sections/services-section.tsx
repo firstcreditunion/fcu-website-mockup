@@ -96,7 +96,7 @@ export default function ServicesSection() {
               >
                 {service.featured ? (
                   <ShineBorder
-                    className={`h-full rounded-3xl bg-gradient-to-br ${service.gradient} hover:shadow-xl transition-all duration-300 cursor-pointer group`}
+                    className={`h-full rounded-3xl bg-linear-to-br ${service.gradient} hover:shadow-xl transition-all duration-300 cursor-pointer group`}
                     color={['#1e5e6f', '#6fd4a8']}
                     borderRadius={24}
                   >

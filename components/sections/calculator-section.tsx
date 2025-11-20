@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Calculator as CalcIcon, TrendingUp } from 'lucide-react'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
+import { Slider } from '@/components/ui/slider'
 import BlurFade from '@/components/magicui/blur-fade'
 
 export default function CalculatorSection() {
@@ -93,21 +94,13 @@ export default function CalculatorSection() {
                         ${loanAmount.toLocaleString()}
                       </span>
                     </label>
-                    <input
-                      type='range'
-                      min='10000'
-                      max='1000000'
-                      step='10000'
-                      value={loanAmount}
-                      onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      style={
-                        {
-                          '--value-percent': `${
-                            ((loanAmount - 10000) / (1000000 - 10000)) * 100
-                          }%`,
-                        } as React.CSSProperties
-                      }
-                      className='w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider'
+                    <Slider
+                      min={10000}
+                      max={1000000}
+                      step={10000}
+                      value={[loanAmount]}
+                      onValueChange={(value) => setLoanAmount(value[0])}
+                      className='w-full'
                     />
                   </div>
 
@@ -119,21 +112,13 @@ export default function CalculatorSection() {
                         {loanTerm} years
                       </span>
                     </label>
-                    <input
-                      type='range'
-                      min='1'
-                      max='30'
-                      step='1'
-                      value={loanTerm}
-                      onChange={(e) => setLoanTerm(Number(e.target.value))}
-                      style={
-                        {
-                          '--value-percent': `${
-                            ((loanTerm - 1) / (30 - 1)) * 100
-                          }%`,
-                        } as React.CSSProperties
-                      }
-                      className='w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider'
+                    <Slider
+                      min={1}
+                      max={30}
+                      step={1}
+                      value={[loanTerm]}
+                      onValueChange={(value) => setLoanTerm(value[0])}
+                      className='w-full'
                     />
                   </div>
 
@@ -204,13 +189,15 @@ export default function CalculatorSection() {
                       </div>
                     </div>
 
+                    {/* <MovingBorder duration={3000} className='w-full'> */}
                     <Button
                       variant='secondary'
                       size='lg'
-                      className='w-full bg-fcu-secondary-500 hover:bg-fcu-secondary-600'
+                      className='w-full bg-fcu-secondary-500 hover:bg-fcu-secondary-600 border-0 cursor-pointer'
                     >
                       Apply for Loan
                     </Button>
+                    {/* </MovingBorder> */}
                   </div>
                 </motion.div>
               </div>
@@ -234,23 +221,13 @@ export default function CalculatorSection() {
                         ${savingsInitial.toLocaleString()}
                       </span>
                     </label>
-                    <input
-                      type='range'
-                      min='0'
-                      max='100000'
-                      step='1000'
-                      value={savingsInitial}
-                      onChange={(e) =>
-                        setSavingsInitial(Number(e.target.value))
-                      }
-                      style={
-                        {
-                          '--value-percent': `${
-                            (savingsInitial / 100000) * 100
-                          }%`,
-                        } as React.CSSProperties
-                      }
-                      className='w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider'
+                    <Slider
+                      min={0}
+                      max={100000}
+                      step={1000}
+                      value={[savingsInitial]}
+                      onValueChange={(value) => setSavingsInitial(value[0])}
+                      className='w-full'
                     />
                   </div>
 
@@ -262,23 +239,13 @@ export default function CalculatorSection() {
                         ${savingsMonthly.toLocaleString()}
                       </span>
                     </label>
-                    <input
-                      type='range'
-                      min='0'
-                      max='5000'
-                      step='100'
-                      value={savingsMonthly}
-                      onChange={(e) =>
-                        setSavingsMonthly(Number(e.target.value))
-                      }
-                      style={
-                        {
-                          '--value-percent': `${
-                            (savingsMonthly / 5000) * 100
-                          }%`,
-                        } as React.CSSProperties
-                      }
-                      className='w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider'
+                    <Slider
+                      min={0}
+                      max={5000}
+                      step={100}
+                      value={[savingsMonthly]}
+                      onValueChange={(value) => setSavingsMonthly(value[0])}
+                      className='w-full'
                     />
                   </div>
 
@@ -290,21 +257,13 @@ export default function CalculatorSection() {
                         {savingsTerm} years
                       </span>
                     </label>
-                    <input
-                      type='range'
-                      min='1'
-                      max='30'
-                      step='1'
-                      value={savingsTerm}
-                      onChange={(e) => setSavingsTerm(Number(e.target.value))}
-                      style={
-                        {
-                          '--value-percent': `${
-                            ((savingsTerm - 1) / (30 - 1)) * 100
-                          }%`,
-                        } as React.CSSProperties
-                      }
-                      className='w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer slider'
+                    <Slider
+                      min={1}
+                      max={30}
+                      step={1}
+                      value={[savingsTerm]}
+                      onValueChange={(value) => setSavingsTerm(value[0])}
+                      className='w-full'
                     />
                   </div>
 
@@ -375,13 +334,15 @@ export default function CalculatorSection() {
                       </div>
                     </div>
 
+                    {/* <MovingBorder duration={3000} className='w-full'> */}
                     <Button
                       variant='default'
                       size='lg'
-                      className='w-full bg-white text-fcu-secondary-700 hover:bg-gray-50'
+                      className='w-full bg-white text-fcu-secondary-500 hover:bg-gray-50 cur border-0'
                     >
                       Open Savings Account
                     </Button>
+                    {/* </MovingBorder> */}
                   </div>
                 </motion.div>
               </div>
@@ -389,103 +350,6 @@ export default function CalculatorSection() {
           </Tabs>
         </BlurFade>
       </div>
-
-      <style jsx>{`
-        .slider {
-          -webkit-appearance: none;
-          appearance: none;
-          background: linear-gradient(
-            to right,
-            rgb(30, 94, 111) 0%,
-            rgb(30, 94, 111) var(--value-percent, 50%),
-            #e5e7eb var(--value-percent, 50%),
-            #e5e7eb 100%
-          );
-          outline: none;
-          transition: all 0.2s ease;
-        }
-
-        .slider:hover {
-          background: linear-gradient(
-            to right,
-            rgb(24, 75, 89) 0%,
-            rgb(24, 75, 89) var(--value-percent, 50%),
-            #d1d5db var(--value-percent, 50%),
-            #d1d5db 100%
-          );
-        }
-
-        .slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: white;
-          cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 3px rgb(30, 94, 111);
-          transition: all 0.2s ease;
-        }
-
-        .slider::-webkit-slider-thumb:hover {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 4px rgb(30, 94, 111);
-          transform: scale(1.1);
-        }
-
-        .slider::-webkit-slider-thumb:active {
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25),
-            0 0 0 5px rgba(30, 94, 111, 0.3);
-          transform: scale(1.05);
-        }
-
-        .slider::-moz-range-thumb {
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: white;
-          cursor: pointer;
-          border: 3px solid rgb(30, 94, 111);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-          transition: all 0.2s ease;
-        }
-
-        .slider::-moz-range-thumb:hover {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-          transform: scale(1.1);
-          border-width: 4px;
-        }
-
-        .slider::-moz-range-thumb:active {
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-          transform: scale(1.05);
-          border: 5px solid rgba(30, 94, 111, 0.3);
-        }
-
-        .slider::-webkit-slider-runnable-track {
-          height: 12px;
-          border-radius: 9999px;
-        }
-
-        .slider::-moz-range-track {
-          height: 12px;
-          border-radius: 9999px;
-          background: transparent;
-        }
-
-        .slider:focus {
-          outline: none;
-        }
-
-        .slider:focus::-webkit-slider-thumb {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
-            0 0 0 4px rgba(30, 94, 111, 0.4);
-        }
-
-        .slider:focus::-moz-range-thumb {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-          border: 4px solid rgba(30, 94, 111, 0.6);
-        }
-      `}</style>
     </section>
   )
 }

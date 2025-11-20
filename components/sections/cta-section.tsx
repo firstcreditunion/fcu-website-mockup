@@ -3,7 +3,8 @@
 import { ArrowRight, Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 import ShimmerButton from '@/components/magicui/shimmer-button'
-import { Button } from '@/components/ui/button'
+import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
+import { CoolMode } from '@/components/ui/cool-mode'
 import BlurFade from '@/components/magicui/blur-fade'
 
 export default function CTASection() {
@@ -45,25 +46,27 @@ export default function CTASection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className='flex flex-col sm:flex-row gap-4 justify-center items-center'
               >
-                <ShimmerButton
-                  className='group px-8'
-                  shimmerColor='#ffffff'
-                  background='rgb(111, 212, 168)'
-                  borderRadius='9999px'
-                >
-                  <span className='whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-fcu-primary-900 lg:text-lg flex items-center gap-2'>
-                    Become a Member
-                    <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
-                  </span>
-                </ShimmerButton>
+                <CoolMode>
+                  <ShimmerButton
+                    className='group px-8'
+                    shimmerColor='#ffffff'
+                    background='rgb(111, 212, 168)'
+                    borderRadius='9999px'
+                  >
+                    <span className='whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-fcu-primary-900 lg:text-lg flex items-center gap-2'>
+                      Become a Member
+                      <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
+                    </span>
+                  </ShimmerButton>
+                </CoolMode>
 
-                <Button
-                  variant='outline'
-                  size='lg'
-                  className='bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm'
+                <HoverBorderGradient
+                  containerClassName='rounded-full'
+                  as='button'
+                  className='bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm px-6 py-3 text-base font-medium'
                 >
                   Contact Us
-                </Button>
+                </HoverBorderGradient>
               </motion.div>
 
               {/* Contact Info */}

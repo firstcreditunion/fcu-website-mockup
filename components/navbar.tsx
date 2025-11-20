@@ -125,7 +125,7 @@ export default function Navbar() {
 
       {/* CardNav from React Bits */}
       <CardNav
-        logo='/fcu-logo.svg'
+        logo='/fcu-logo.png'
         logoAlt='First Credit Union'
         items={cardNavItems}
         baseColor='#ffffff'
